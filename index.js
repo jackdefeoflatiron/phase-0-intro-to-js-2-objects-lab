@@ -1,21 +1,25 @@
-const = employees {
-    object = employee( key1, key2)
-        key1 : name ,
-        key2 : streetAddress,
+const employee = {
+    name : 'Sam',
+    streetAddress : '11 Broadway',
 }
-function updateEmployeeWithKeyAndValue(employees,name, streetAddress){
-    name("Sam")
-}
-function destructivelyUpdateEmployeeWithKeyAndValue(employees,name, streetAddress) {
-    name.splice("Sam");
-    streetAddress.splice("11 Broadway")
-}
-function updateEmployeeWithKeyAndValue(employees,name, streetAddress) {
-    streetAddress.unshift("11 Broadway")
-}
-function deleteFromEmployeeByKey(employees,name, streetAddress) {
-    
-}
-function destructivelyDeleteFromEmployeeByKey(employees,name, streetAddress) {
 
+function updateEmployeeWithKeyAndValue(employee, name, streetAddress) {
+        const newEmployee = {...employee};
+        newEmployee [name] =streetAddress
+        return newEmployee
+}
+
+function  destructivelyUpdateEmployeeWithKeyAndValue(employee, name, streetAddress) {
+    employee[name] = streetAddress;
+    return employee
+}
+
+function deleteFromEmployeeByKey(employee, name) {
+  const newEmployee = {...employee}
+  delete newEmployee[name]
+  return newEmployee
+}
+function destructivelyDeleteFromEmployeeByKey(employee,name) {
+    delete employee.name
+    return employee
 }
